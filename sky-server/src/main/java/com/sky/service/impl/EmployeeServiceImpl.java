@@ -107,4 +107,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return new PageResult(page.getTotal(), page.getResult());
     }
+
+
+    /**
+     * 设置员工状态
+     * @param status
+     * @param id
+     */
+    @Override
+    public void setEmployeeStatus(Integer status, Long id) {
+        Employee employee = Employee.builder().id(id).status(status).build();
+        employeeMapper.update(employee);
+    }
 }
